@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .button{
+            padding: 3%;
+            display: flex;
+            margin: 30px 150px 15px 550px;
+            background-color: aqua;
+        }
+        .button:hover{
+            background-color: red;
+        }
+
+    </style>
+      <!--1.using inline events-->
+      <button class="button" onclick="alert('this is inline')">Method 1</button>
+      <button class="button" onclick="some()">Method 2</button>
+      <button class="button" id="third">Method 3</button>
+      <button class="button" id="forth">Method 4</button>
+
+    
+    <script>
+        //2nd way
+        function some(){
+            alert('second way by calling function');
+        }
+
+       //3rd way 
+       let thirds=document.getElementById('third');     //it overrides if we use same twice first won't works
+        thirds.onclick=function(){
+
+           alert('third way of calling event');
+        }
+         
+        thirds.onclick=function(){
+
+           console.log('third way of calling event');
+        }
+        //4th way
+        let forth=document.querySelector('#forth')
+         forth.addEventListener('click',function(){
+            alert('4th way of calling event')
+         })
+         
+         forth.addEventListener('click',function(){
+           console.log('4th way of calling event')
+         })
+
+
+
+    </script>
+</body>
+</html>

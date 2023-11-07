@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: rgb(199, 190, 178);
+        }
+        h2{
+            margin: 15% 25% 0 45%;
+            color: rgb(103, 21, 196);
+            font-weight: 500px;
+           
+
+        }
+        #butt{
+            margin: 0 25% 25% 45%;
+            color: rgb(0, 255, 64);
+            border-color: none;
+            border-width: 0;
+           
+        }
+       #butt:hover{
+           
+            background-color: red;
+        }
+        #disp{
+            margin: 0 0 0 45%;
+        }
+
+    </style>
+    <h2>display my name</h2>
+    <p id="disp"></p>
+    <button id="butt">click me!</button>
+
+    
+    <script>
+        const buttonClick=document.getElementById('butt');
+        const pId=document.getElementById('disp');
+        const show=()=>{
+            setTimeout(()=>{
+                pId.innerHTML="Rahul balati"
+            },1000)
+        }
+        buttonClick.addEventListener('click',show);
+
+    </script>
+</body>
+</html>
