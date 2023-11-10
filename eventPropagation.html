@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+</head>
+<body>
+    <style>
+        .parent{
+           height: 500px; 
+           width: 500px;
+           border: 1px solid black;
+           margin: 100px 60px 30px 500px;
+           background-color: aqua;
+           cursor: pointer;
+        }
+        .child{
+           height: 200px; 
+           width: 200px;
+           border: 1px solid black;
+           margin: 150px 60px 30px 150px;
+           background-color: rgb(145, 255, 0);
+           cursor: pointer;
+        }
+
+    </style>
+      <div class="parent" id="parentDiv">
+        <div class="child" id="childDiv"></div>
+      </div>
+
+    <script>
+        <!-- //const parents=document.getElementsByClassName('parent')       //note it is a collection eventlistner works on elements
+       // const childs=document.getElementsByClassName('child') -->
+       const parents=document.getElementById("parentDiv")
+       const childs=document.getElementById("childDiv")
+
+
+        const parentCall=()=>{
+            alert('parent div called');
+            console.log('parent div call');
+        }
+        const childCall=()=>{
+            alert('child div called');
+            console.log('child div call');
+           // event.stopPropagation();         //stops event bubbling
+        }
+      //  parents.addEventListener('click',parentCall);
+       // childs.addEventListener('click',childCall)       //Bydefault EventBubling
+       parents.addEventListener('click',parentCall,true);
+        childs.addEventListener('click',childCall,true);
+
+    </script>
+    
+</body>
+</html>
