@@ -416,3 +416,260 @@ function arguement=actual value passed while calling the function */
 // setInterval();
 // clearTimeout();
 // clearInterval();
+
+
+//this refers to current object
+// console.log(this)
+//it refers to current contenst that is window object
+
+/******************************* Some More features ECMASCRIPT 2015 ************************************************/
+
+// let myData=['rahul','balati','meena']          
+//before we use to describe like this
+// let myname=myData[0];
+// let mylast=myData[1];
+// let mygf=myData[2];
+// console.log(myname)
+
+//now
+// let[myname,mylast,mygf]=myData;
+// console.log(mylast)
+// let[myname,mylast,mygf="dkjh"]=myData;       //can't redeclare 
+// console.log(mygf)
+
+// const myBiodata={
+//   myFname:'vinod',
+//   myLname:'balati',
+//   myAge:26
+
+// }
+// let{myFname,myLname,age}=myBiodata;               //if you give athor name it will not work
+// console.log(age)
+// let{myFname,myLname,myAge}=myBiodata
+// console.log(myAge)
+
+/*********************** Object Properties *********************************************************************/
+
+//we can use dynamic properties
+// let myName="rahul";
+// const myBio={ 
+  
+//   [myName]:"how are you",
+//    26:"is my age ",
+// }
+// console.log(myBio)
+
+// no need to write key and value if both has same names
+// let myname="rahul balati";
+// let age=26;
+// const myBio={myname,age}
+// console.log(myBio)
+
+/************************* Spread Operators *********************************************/
+
+// const colors=['red','black','green','white'];
+// const newColors=['red','black','green','white','blue','grey'] //normal way to add all colors
+
+// const MyFav=[...colors,'blue','grey']       //using spread operator
+// console.log(MyFav)
+
+/************  ECMAScript 2017/ES7  ****************************************************/
+
+//Array.prototype.includes
+//Exponentiation Operator
+
+//1.Array Includes
+//  const colors=['red','black','green','white'];
+//  const isPresent=colors.includes('red')
+//  console.log(isPresent)
+
+//2.Exponent operator
+// let a=2**3    //2 power 3
+// console.log(a)
+
+/*********************** ES8 features *************************************************/
+//String padding
+//object.values()
+//Object.entries()
+//flat
+
+
+//String padding
+// let name="rahul".padStart(10).padEnd(5);          //includes characters also so starting 5 spaces
+// console.log(name)
+
+// const person={name:"Fred",age:57};
+// console.log(Object.values(person))
+// console.log(Object.entries(person))
+
+//ES2019
+//Array.prototype.{flat,flatMap}
+// Object.fromEntries()           //array to object
+
+//  let oldNum=Number.MAX_SAFE_INTEGER;
+// console.log(oldNum+12)                          //slowy breaks tries giving incorrect
+
+//append n just to convert to bigint
+//console.log(999999999999999999999999999999999n+12n)
+
+//nulllish coalescing
+// const foo=null??'default something';
+// console.log(foo)
+
+
+//2014 update
+
+
+// x=3.14
+// console.log(x)    runs without anyerror
+
+// "use strict"; 
+// x=3.14              gives error as x is not defined
+// console.log(x)  
+
+
+/*#################################### ADVANCE JAVASCRIPT #################################################*/
+
+//Topics 
+//1.Event Propagation(Event Bubbling and Event capturing)
+//2.Higher Order Function
+//3.CallBack function
+//4.Function Currying
+//5.CallBack hell
+//6.Ajax call using XMLHttprequest
+//7.JSON
+//8.Fetch API
+//9.Promises
+//10. Async-Await
+//11.Error Handling in JS
+
+
+//1.event bubbling occurs where parent alerts first later child i.e event call occuring from top to bottom  OPP is event capturing 
+
+//detail explaination see eventPropogation.html
+
+//2.CALL BACK AND HIGHER ORDER FUNCTION
+
+//call back :- those functions which we pass them as a arguement to other function
+//higher order function:-those functions which accepts other function as an arguement
+
+// const add=(a,b)=>{    //call back functions
+//   return a+b; 
+
+// }
+// const sub=(a,b)=>{   //call back functions
+//   return a-b;
+// }
+
+// const calculator=(a,b,operator)=>{     //higher order
+//   return operator(a,b);
+// }
+// console.log(calculator(5,2,add));
+
+//Function currings
+
+//sum(1,2,3) sum(1)(2)(3) both  are different
+
+// function sum(num1){
+//  return  function(num2){
+//   return function(num3){
+//     console.log(num1+num2+num3)
+//   }
+
+//   }
+// }
+// sum(1)(2)(3)
+
+//Callback hell :-each time a function calls another function after certain interval of time
+
+//JSON.stringify turns a js object into json text and stores that JSON text ina string,eg:
+
+// var my_object={key_1:"some text",key_2:1,key_3:true};
+// var useingStringfy=JSON.stringify(my_object)
+// typeof(useingStringfy)
+
+
+/**************************** ASYNC JAVASCRIPT *******************************8 */ 
+
+//1.Hoisting  in JS
+//2.Scope Chain
+//3.Lexical Scoping in JS
+//4.Use Strict Mode
+//5.This keyword
+//6.Closures in JS
+//7.what is Asynchronous JS programming
+//8.What is Event Loop
+
+
+//Hoisting ;- It is a mechanism where variables and function i.e declaration  are moved to the top of their scope
+
+// console.log(name);   //prints undefined
+// var name;
+// name="rahul"
+
+//two phases creation and execution phase
+// steps how undefined prints
+
+//step 1: var name;
+//step 2:console.log(name)
+//step 3:name="rahul";
+
+//therefore let and const came it gives error
+
+//In ES6 hoisting is avoided by using let keyword instead of var
+
+//Scope Chain and Lexical Scoping in JS
+
+//lexical scoping means inner functions can access the outer function variables but vice-versa not allowed
+
+
+//CLOSURES 
+//Closures are functions that have access to variables in their outer function scope, even after the outer function has returned. 
+// function createCounter(){
+//   let count=0;
+//   return function(){
+//     count++;
+//     console.log(count);
+//   }
+
+// }
+// const counter1=createCounter();
+// counter1();
+// counter1();
+
+//Difference between synchronous and asynchrous
+
+//synchronous waits until the 1st function completes it execution 
+//disadvantage if !st function 10min
+//2nd 5sec
+// function  someFun1(){
+//   console.log("fun1 executes")
+// }
+
+// function someFun2(){
+//   console.log("function 2 executes")
+//   someFun1();
+//     console.log("function 2 executes again")       //lines waits until above function executes
+// }
+// someFun2()
+
+// function  someFun1(){
+//   setTimeout(()=>{
+//      console.log("fun1 executes")
+
+//   },2000)
+ 
+// }
+
+// function someFun2(){
+//   console.log("function 2 executes")
+//   someFun1();
+//     console.log("function 2 executes again")       //lines don't waits until above function executes
+// }
+// someFun2()
+
+//to solve it we use asynchrous
+
+
+//Event loop in above program the setTimeOut is hold by web api for that particular time later it gives it to message queue then event loop sends to execution stack it then executes
+
